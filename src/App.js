@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {withRouter, Route, Switch} from 'react-router-dom'
+import Home from './1.pages/Home/Home';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavbarComp from './1.pages/Navbar/Navbar';
+import Auth from './1.pages/Auth/Auth';
+import Cookie from 'universal-cookie'
+import {connect} from 'react-redux'
+import {keepLogin} from './redux/1.actions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+let cookieObj = new Cookie()
+class App extends Component {
+
+  componentDidMount(){
+    let cookieVar = cookieObj.get('userData')
+    if(cookieVar){
+      this.props.keepLogin(cookieVar)
+    }
+  }
+
+  render(){
+    return (
+      <div>
+        <NavbarComp/>
+        <Switch>
+          <Route component={Home} path='/' exact />
+          <Route component={Auth} path='/auth' exact />
+          {/* <Route component={Classes} path='/classes' exact />
+          <Route component={Schedules} path='/schedules' exact />
+          <Route component={Instructors} path='/instructors' exact /> */}
+        </Switch>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default connect(null, {keepLogin})(withRouter(App))
