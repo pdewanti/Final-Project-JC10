@@ -5,13 +5,13 @@ const Carousel = () => <UncontrolledCarousel items={items} />;
 
 const items = [
   {
-      src:'http://altfithealth.com/wp-content/uploads/2013/06/TenPilates-class-kneeling.jpg',
+    src:'http://altfithealth.com/wp-content/uploads/2013/06/TenPilates-class-kneeling.jpg',
     altText: '',
     caption: 'Power Pilates',
     header: ' Power pilates'
   },
   {
-      src:'https://cdn.shortpixel.ai/client/q_lossless,ret_img,w_1440/https://www.pilatesinthegrove.com/wp-content/uploads/2016/10/PilatesInTheGrove-barre-to-go-class.jpg',
+    src:'https://cdn.shortpixel.ai/client/q_lossless,ret_img,w_1440/https://www.pilatesinthegrove.com/wp-content/uploads/2016/10/PilatesInTheGrove-barre-to-go-class.jpg',
     altText: '',
     caption: 'Barre Body Signature',
     header: 'Barre Body Signature'

@@ -190,4 +190,4 @@ const mapStateToProps = (state) => {
 }
 
 // 3. connect (<MAPSTATETOPROPS>, {<ACTION>})(<COMPONENT>)
-export default connect(mapStateToProps, {onLogin, onRegister})(Auth);
+export default connects(mapStateToProps, {onLogin, onRegister})(Auth);
